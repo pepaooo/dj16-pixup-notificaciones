@@ -23,9 +23,4 @@ public class JpaUsuarioRepository implements UsuarioRepository {
         return usuarios.isEmpty() ? Optional.empty() : Optional.of(usuarios.get(0));
     }
 
-    @Override
-    public Usuario save(Usuario usuario) {
-        entityManager.persist(usuario);
-        return usuario;
-    }
 }

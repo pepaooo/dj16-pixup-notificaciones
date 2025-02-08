@@ -8,10 +8,13 @@ import jakarta.mail.Transport;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
 import jakarta.ws.rs.ServiceUnavailableException;
+import lombok.extern.java.Log;
 
 import java.util.Date;
+import java.util.logging.Level;
 
 @Stateless
+@Log
 public class EmailServiceImpl implements EmailService {
 
     @Resource(mappedName = "java:jboss/mail/Default")
@@ -30,8 +33,8 @@ public class EmailServiceImpl implements EmailService {
             // Enviar email
             Transport.send(message);
         } catch (MessagingException e) {
-            e.printStackTrace();
-            throw new ServiceUnavailableException("EmailService");
+            log.log(Level.SEVERE, "Error al invocar el servicio EmailService", e);
+            throw new EmailServiceUnavailableException();
         }
     }
 

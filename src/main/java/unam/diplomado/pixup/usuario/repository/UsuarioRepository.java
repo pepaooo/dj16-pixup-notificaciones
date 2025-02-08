@@ -8,6 +8,4 @@ public interface UsuarioRepository {
 
     public Optional<Usuario> findByEmail(String email);
 
-    public Usuario save(Usuario usuario);
-
 }

@@ -14,7 +14,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "tipo_notificacion")
+@Table(name = "notificacion")
 public class Notificacion {
 
     @Id
